@@ -70,3 +70,4 @@ jobs:
           tags: |
             ghcr.io/${{ steps.repo.outputs.owner_lc }}/${{ github.event.repository.name }}:latest
             ghcr.io/${{ steps.repo.outputs.owner_lc }}/${{ github.event.repository.name }}:${{ github.sha }}
+
