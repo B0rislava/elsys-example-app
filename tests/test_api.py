@@ -1,11 +1,6 @@
-import sys
-import os
-
-sys.path.append(os.path.dirname(os.path.dirname(__file__)))
-
-import io  # noqa: E402
-from fastapi.testclient import TestClient  # noqa: E402
-from main import app  # noqa: E402
+import io
+from fastapi.testclient import TestClient
+from main import app
 
 client = TestClient(app)
 

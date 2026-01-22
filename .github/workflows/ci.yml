@@ -33,7 +33,7 @@ jobs:
 
       - name: Run unit tests
         if: matrix.task == 'test'
-        run: pytest test_api.py -v
+        run: pytest -v
 
       - name: Run flake8 linter
         if: matrix.task == 'lint'
