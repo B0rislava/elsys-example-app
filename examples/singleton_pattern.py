@@ -207,7 +207,7 @@ def demo_thread_safety():
 
     instances = []
 
-    def create_instance(thread_id):
+    def create_instance(_):
         """Create an instance in a separate thread"""
         manager = FileStorageManager()
         instances.append(id(manager))

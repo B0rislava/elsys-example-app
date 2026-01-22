@@ -1,16 +1,20 @@
-import sys, os
+import sys
+import os
+
 sys.path.append(os.path.dirname(os.path.dirname(__file__)))
 
-from fastapi.testclient import TestClient
-from main import app
-import io
+import io  # noqa: E402
+from fastapi.testclient import TestClient  # noqa: E402
+from main import app  # noqa: E402
 
 client = TestClient(app)
+
 
 def test_health():
     response = client.get("/health")
     assert response.status_code == 200
     assert response.json()["status"] == "healthy"
+
 
 def test_list_files():
     response = client.get("/files")
@@ -26,10 +30,12 @@ def test_upload_file():
     response = client.post("/files", files=files)
     assert response.status_code in (200, 201)
 
+
 def test_get_uploaded_file():
     response = client.get("/files/testfile.txt")
     assert response.status_code == 200
     assert b"hello" in response.content
+
 
 def test_metrics():
     response = client.get("/metrics")
